@@ -11,7 +11,7 @@ function convertSpreadsheetToJson() {
         var tags = row[10].split("\n")
 
         currentQuestion = {
-            "question_key": row[4],
+            "question_key": parseInt(row[4]),
             "skills": [],
             "toughness":String(row[18] || ""),
             "short_text":String(row[2] || ""),
