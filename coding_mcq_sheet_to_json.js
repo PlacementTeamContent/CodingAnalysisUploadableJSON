@@ -1,7 +1,5 @@
 function convertSpreadsheetToJson() {
-    //CHANGE IT WITH YOUR SUB-SHEET NAME
-    var name = "Responses 14/10/2024"
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(name);
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Responses 14/10/2024");
     var data = sheet.getDataRange().getValues();
     var questions = [];
     var currentQuestion = null;
@@ -31,12 +29,12 @@ function convertSpreadsheetToJson() {
                     "input": "",
                     "question_id": String(row[0] || ""),
                     "wrong_answers": [
-                        wrong_answers[0],
-                        wrong_answers[1],
-                        wrong_answers[2]
+                        wrong_answers[0].split(":")[1].trim(),
+                        wrong_answers[1].split(":")[1].trim(),
+                        wrong_answers[2].split(":")[1].trim()
                     ],
                     "output": [
-                        String(row[11] || "")
+                        String(row[11]).split(":")[1].trim()
                     ]
                 }
             ],
